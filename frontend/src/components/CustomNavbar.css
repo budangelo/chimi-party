@@ -1,0 +1,240 @@
+.floating-navbar-wrapper {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(420px, calc(100vw - 24px));
+  z-index: 1000;
+  transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.floating-navbar-wrapper.open {
+  width: min(1040px, calc(100vw - 24px));
+}
+
+.floating-navbar {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(15, 15, 15, 0.08);
+  border-radius: 28px;
+  box-shadow: 0 20px 50px rgba(15, 15, 15, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  overflow: hidden;
+}
+
+.navbar-top-row {
+  display: grid;
+  grid-template-columns: 52px 1fr 52px;
+  align-items: center;
+  gap: 16px;
+  min-height: 72px;
+  padding: 10px 16px;
+}
+
+.navbar-icon-button {
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 16px;
+  background: transparent;
+  color: #111111;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.25s ease, opacity 0.25s ease;
+  font-size: 1.55rem;
+}
+
+.navbar-icon-button:hover {
+  background-color: rgba(17, 17, 17, 0.06);
+  transform: translateY(-1px);
+}
+
+.navbar-brand {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.navbar-brand-image {
+  max-width: 180px;
+  max-height: 38px;
+  object-fit: contain;
+  display: block;
+}
+
+.navbar-brand-placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+  min-height: 38px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background-color: rgba(17, 17, 17, 0.05);
+  color: #111111;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+.navbar-dropdown {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-10px);
+  transition:
+    max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.25s ease,
+    transform 0.35s ease,
+    padding 0.35s ease;
+  padding: 0 24px;
+}
+
+.navbar-dropdown.show {
+  max-height: 420px;
+  opacity: 1;
+  transform: translateY(0);
+  padding: 6px 24px 24px;
+}
+
+.navbar-dropdown-content {
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.navbar-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 0 0;
+}
+
+.navbar-menu a {
+  color: #111111;
+  text-decoration: none;
+  font-size: clamp(1.7rem, 2vw, 2.4rem);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  padding: 10px 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.navbar-menu a:hover {
+  opacity: 0.65;
+  transform: translateX(6px);
+}
+
+.navbar-expand-area {
+  min-height: 250px;
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.08));
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.expand-area-label {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.55);
+}
+
+.expand-area-text {
+  margin: 0;
+  max-width: 420px;
+  color: rgba(17, 17, 17, 0.78);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 991px) {
+  .floating-navbar-wrapper {
+    width: calc(100vw - 24px);
+  }
+
+  .floating-navbar-wrapper.open {
+    width: calc(100vw - 24px);
+  }
+
+  .navbar-dropdown.show {
+    max-height: 560px;
+  }
+
+  .navbar-dropdown-content {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar-expand-area {
+    min-height: 140px;
+  }
+}
+
+@media (max-width: 576px) {
+  .floating-navbar-wrapper {
+    top: 16px;
+    width: calc(100vw - 16px);
+  }
+
+  .floating-navbar-wrapper.open {
+    width: calc(100vw - 16px);
+  }
+
+  .floating-navbar {
+    border-radius: 24px;
+  }
+
+  .navbar-top-row {
+    min-height: 68px;
+    gap: 10px;
+    padding: 8px 12px;
+  }
+
+  .navbar-icon-button {
+    width: 46px;
+    height: 46px;
+    font-size: 1.35rem;
+  }
+
+  .navbar-brand-image {
+    max-width: 130px;
+    max-height: 32px;
+  }
+
+  .navbar-brand-placeholder {
+    min-width: 86px;
+    min-height: 34px;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+  }
+
+  .navbar-dropdown {
+    padding: 0 16px;
+  }
+
+  .navbar-dropdown.show {
+    padding: 4px 16px 18px;
+  }
+
+  .navbar-menu a {
+    font-size: 1.8rem;
+  }
+
+  .navbar-expand-area {
+    padding: 20px;
+    border-radius: 20px;
+  }
+}
