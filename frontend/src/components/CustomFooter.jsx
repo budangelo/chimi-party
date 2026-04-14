@@ -1,7 +1,7 @@
 import { FaInstagram, FaTiktok, FaFacebookF } from 'react-icons/fa'
 import './CustomFooter.css'
 
-function CustomFooter() {
+function CustomFooter({ onOpenContactModal }) {
   return (
     <footer className="custom-footer">
       <div className="footer-overlay"></div>
@@ -15,9 +15,13 @@ function CustomFooter() {
           </div>
 
           <div className="footer-center">
-            <a href="#contatti" className="footer-contact-button">
+            <button
+              type="button"
+              className="footer-contact-button"
+              onClick={onOpenContactModal}
+            >
               Contatti
-            </a>
+            </button>
           </div>
 
           <div className="footer-socials">

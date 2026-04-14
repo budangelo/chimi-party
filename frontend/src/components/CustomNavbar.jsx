@@ -3,7 +3,7 @@ import { FaWhatsapp } from 'react-icons/fa'
 import { HiOutlineBars3, HiOutlineXMark } from 'react-icons/hi2'
 import './CustomNavbar.css'
 
-function CustomNavbar() {
+function CustomNavbar({ onOpenContactModal }) {
   const [isOpen, setIsOpen] = useState(false)
   const navbarRef = useRef(null)
 
@@ -43,6 +43,11 @@ function CustomNavbar() {
     setIsOpen(false)
   }
 
+  const handleOpenContacts = () => {
+    closeMenu()
+    onOpenContactModal()
+  }
+
   return (
     <div className={`floating-navbar-wrapper ${isOpen ? 'open' : ''}`}>
       <div className="floating-navbar" ref={navbarRef}>
@@ -75,6 +80,7 @@ function CustomNavbar() {
             className="navbar-icon-button"
             onClick={toggleMenu}
             aria-label={isOpen ? 'Chiudi menu' : 'Apri menu'}
+            aria-expanded={isOpen}
           >
             {isOpen ? <HiOutlineXMark /> : <HiOutlineBars3 />}
           </button>
@@ -86,15 +92,14 @@ function CustomNavbar() {
               <a href="#home" onClick={closeMenu}>Home</a>
               <a href="#servizi" onClick={closeMenu}>Servizi</a>
               <a href="#su-di-noi" onClick={closeMenu}>Su di noi</a>
-              <a href="#contatti" onClick={closeMenu}>Contatti</a>
+              <button
+                type="button"
+                className="navbar-contact-trigger"
+                onClick={handleOpenContacts}
+              >
+                Contatti
+              </button>
             </nav>
-
-            <div className="navbar-expand-area">
-              <span className="expand-area-label">Spazio libero</span>
-              <p className="expand-area-text">
-                Qui poi puoi inserire una frase breve, una foto o una call to action.
-              </p>
-            </div>
           </div>
         </div>
       </div>

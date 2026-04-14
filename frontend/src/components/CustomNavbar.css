@@ -100,66 +100,41 @@
   max-height: 420px;
   opacity: 1;
   transform: translateY(0);
-  padding: 6px 24px 24px;
+  padding: 12px 24px 28px;
 }
 
 .navbar-dropdown-content {
-  display: grid;
-  grid-template-columns: minmax(240px, 320px) 1fr;
-  gap: 24px;
-  align-items: stretch;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .navbar-menu {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 12px 0 0;
+  text-align: center;
+  width: 100%;
 }
 
 .navbar-menu a {
   color: #111111;
   text-decoration: none;
-  font-size: clamp(1.7rem, 2vw, 2.4rem);
+  font-size: clamp(1.9rem, 2.2vw, 2.8rem);
   line-height: 1;
   font-weight: 500;
   letter-spacing: -0.04em;
-  padding: 10px 0;
+  padding: 12px 0;
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
 .navbar-menu a:hover {
   opacity: 0.65;
-  transform: translateX(6px);
+  transform: translateY(-1px);
 }
 
-.navbar-expand-area {
-  min-height: 250px;
-  border-radius: 24px;
-  background:
-    linear-gradient(135deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.08));
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.expand-area-label {
-  display: inline-block;
-  margin-bottom: 10px;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(17, 17, 17, 0.55);
-}
-
-.expand-area-text {
-  margin: 0;
-  max-width: 420px;
-  color: rgba(17, 17, 17, 0.78);
-  font-size: 1rem;
-  line-height: 1.5;
-}
 
 @media (max-width: 991px) {
   .floating-navbar-wrapper {
@@ -172,14 +147,6 @@
 
   .navbar-dropdown.show {
     max-height: 560px;
-  }
-
-  .navbar-dropdown-content {
-    grid-template-columns: 1fr;
-  }
-
-  .navbar-expand-area {
-    min-height: 140px;
   }
 }
 
@@ -230,11 +197,31 @@
   }
 
   .navbar-menu a {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
   }
+}
 
-  .navbar-expand-area {
-    padding: 20px;
-    border-radius: 20px;
+.navbar-contact-trigger {
+  border: none;
+  background: transparent;
+  color: #111111;
+  text-decoration: none;
+  font-size: clamp(1.9rem, 2.2vw, 2.8rem);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  padding: 12px 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  cursor: pointer;
+}
+
+.navbar-contact-trigger:hover {
+  opacity: 0.65;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 576px) {
+  .navbar-contact-trigger {
+    font-size: 1.9rem;
   }
 }
