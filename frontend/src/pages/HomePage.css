@@ -141,6 +141,7 @@ html {
 .about-section {
   padding: 20px 20px 90px;
   background-color: #d9d8f4;
+  margin-bottom: -1px;
 }
 
 .about-container {

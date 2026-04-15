@@ -25,7 +25,7 @@ function CustomFooter({ onOpenContactModal }) {
           </div>
 
           <div className="footer-socials">
-            <a href="#" aria-label="Instagram" className="footer-social-link">
+            <a href="https://www.instagram.com/chimiparty_balloons?igsh=aDBybjlmd3ptemtm" aria-label="Instagram" className="footer-social-link">
               <FaInstagram />
             </a>
             <a href="#" aria-label="TikTok" className="footer-social-link">
