@@ -4,8 +4,6 @@ import './CustomFooter.css'
 function CustomFooter({ onOpenContactModal }) {
   return (
     <footer className="custom-footer">
-      <div className="footer-overlay"></div>
-
       <div className="footer-container">
         <div className="footer-top">
           <div className="footer-brand">
@@ -25,9 +23,15 @@ function CustomFooter({ onOpenContactModal }) {
           </div>
 
           <div className="footer-socials">
-            <a href="https://www.instagram.com/chimiparty_balloons?igsh=aDBybjlmd3ptemtm" aria-label="Instagram" className="footer-social-link">
-              <FaInstagram />
-            </a>
+<a
+  href="https://www.instagram.com/chimiparty_balloons?igsh=aDBybjlmd3ptemtm"
+  target="_blank"
+  rel="noreferrer"
+  aria-label="Instagram"
+  className="footer-social-link"
+>
+  <FaInstagram />
+</a>
             <a href="#" aria-label="TikTok" className="footer-social-link">
               <FaTiktok />
             </a>
